@@ -1,12 +1,13 @@
-package com.coyul.productstestapp.domain.repository
+package com.coyul.productstestapp.data.repository
 
-import com.coyul.productstestapp.data.repository.ProductsLifeCycleRepository
 import com.coyul.productstestapp.domain.model.Category
+import com.coyul.productstestapp.domain.repository.ProductsLifeCycleRepository
+import javax.inject.Inject
 
 /**
  * @author Koenova Yulia
  */
-class ProductsLifeCycleRepositoryImpl : ProductsLifeCycleRepository {
+class ProductsLifeCycleRepositoryImpl @Inject constructor() : ProductsLifeCycleRepository {
 
     private lateinit var categories: List<Category>
 

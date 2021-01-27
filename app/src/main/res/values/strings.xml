@@ -1,3 +1,9 @@
 <resources>
+    <!-- titles -->
     <string name="app_name">Products App</string>
+    <string name="title_details">Product details</string>
+
+    <!-- errors and stubs-->
+    <string name="stub_text">There are no products available</string>
+    <string name="error_text">Unfortunately, something went wrong. Please try to reboot the app</string>
 </resources>

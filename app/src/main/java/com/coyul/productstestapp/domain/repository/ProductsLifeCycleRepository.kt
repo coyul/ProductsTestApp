@@ -1,4 +1,4 @@
-package com.coyul.productstestapp.data.repository
+package com.coyul.productstestapp.domain.repository
 
 import com.coyul.productstestapp.domain.model.Category
 

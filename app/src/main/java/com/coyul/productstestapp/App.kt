@@ -1,9 +1,15 @@
 package com.coyul.productstestapp
 
-import android.app.Application
+import com.coyul.productstestapp.di.DaggerAppComponent
+import dagger.android.AndroidInjector
+import dagger.android.support.DaggerApplication
+
 
 /**
  * @author Koenova Yulia
  */
-class App : Application() {
+class App : DaggerApplication() {
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+        return DaggerAppComponent.factory().create(this)
+    }
 }
