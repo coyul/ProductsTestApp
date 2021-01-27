@@ -5,6 +5,11 @@ import com.coyul.productstestapp.presentation.fragment.ProductsListFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
+/**
+ * Module for injecting fragments
+ *
+ * @author Koenova Yulia
+ */
 @Module
 abstract class FragmentBuildersModule {
 

@@ -5,6 +5,8 @@ import com.coyul.productstestapp.domain.model.Product
 import io.reactivex.rxjava3.core.Single
 
 /**
+ * Basic use cases for products (list and details)
+ *
  * @author Koenova Yulia
  */
 interface ProductsInteractor {

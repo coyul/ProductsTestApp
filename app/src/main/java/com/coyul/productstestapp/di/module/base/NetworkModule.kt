@@ -2,18 +2,23 @@ package com.coyul.productstestapp.di.module.base
 
 import com.coyul.productstestapp.BuildConfig
 import com.coyul.productstestapp.data.api.ProductsApi
+import com.coyul.productstestapp.di.scope.ApplicationScope
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Singleton
 
+/**
+ * Module with dependencies for network work
+ *
+ * @author Koenova Yulia
+ */
 @Module
 class NetworkModule {
 
     @Provides
-    @Singleton
+    @ApplicationScope
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
@@ -23,7 +28,7 @@ class NetworkModule {
     }
 
     @Provides
-    @Singleton
+    @ApplicationScope
     fun provideProductsApi(retrofit: Retrofit): ProductsApi {
         return retrofit.create(ProductsApi::class.java)
     }

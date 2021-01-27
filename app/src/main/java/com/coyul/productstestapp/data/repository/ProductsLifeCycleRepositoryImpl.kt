@@ -5,6 +5,8 @@ import com.coyul.productstestapp.domain.repository.ProductsLifeCycleRepository
 import javax.inject.Inject
 
 /**
+ * Default implementation of [ProductsLifeCycleRepository]
+ *
  * @author Koenova Yulia
  */
 class ProductsLifeCycleRepositoryImpl @Inject constructor() : ProductsLifeCycleRepository {

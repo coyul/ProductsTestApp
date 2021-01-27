@@ -4,8 +4,9 @@ import com.coyul.productstestapp.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 
-
 /**
+ * Basic application class
+ *
  * @author Koenova Yulia
  */
 class App : DaggerApplication() {

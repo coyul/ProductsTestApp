@@ -3,13 +3,14 @@ package com.coyul.productstestapp.presentation.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.coyul.productstestapp.R
+import com.coyul.productstestapp.databinding.CategoryListItemBinding
+import com.coyul.productstestapp.databinding.ProductListItemBinding
 import com.coyul.productstestapp.domain.model.Category
 import com.coyul.productstestapp.domain.model.Element
 import com.coyul.productstestapp.presentation.listener.OnItemClickListener
 
 /**
- * Адаптер для избранного - в списке под [Category] располагаются кликабельные [Product]
+ * Adapter for main screen list, under each [Category] is placed list with [Product]-s
  *
  * @author Koenova Yulia
  */
@@ -18,7 +19,7 @@ class CategoriesWithProductsAdapter(
 ) :
     RecyclerView.Adapter<CategoriesWithProductsViewHolder>() {
 
-    var elements: List<Element> = emptyList()
+    private var elements: List<Element> = emptyList()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -26,19 +27,21 @@ class CategoriesWithProductsAdapter(
     ): CategoriesWithProductsViewHolder {
         return when (ItemViewType.values()[viewType]) {
             ItemViewType.CATEGORY -> {
-                val view = LayoutInflater
-                    .from(parent.context)
-                    .inflate(R.layout.category_list_item, parent, false)
                 CategoryViewHolder(
-                    view
+                    CategoryListItemBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    )
                 )
             }
             ItemViewType.PRODUCT -> {
-                val view = LayoutInflater
-                    .from(parent.context)
-                    .inflate(R.layout.product_list_item, parent, false)
                 ProductViewHolder(
-                    view,
+                    ProductListItemBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    ),
                     clickListener
                 )
             }
@@ -50,7 +53,6 @@ class CategoriesWithProductsAdapter(
     override fun onBindViewHolder(holder: CategoriesWithProductsViewHolder, position: Int) {
         holder.bindView(elements[position], isLastProduct(position))
     }
-
 
     fun submitList(elements: List<Element>) {
         this.elements = elements

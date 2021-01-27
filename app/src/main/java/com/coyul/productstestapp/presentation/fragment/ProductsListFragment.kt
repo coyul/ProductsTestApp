@@ -18,6 +18,8 @@ import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
 /**
+ * Fragment for products list sorted by categories
+ *
  * @author Koenova Yulia
  */
 class ProductsListFragment : DaggerFragment(), OnItemClickListener<Element> {

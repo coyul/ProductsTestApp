@@ -8,6 +8,8 @@ import io.reactivex.rxjava3.core.Single
 import javax.inject.Inject
 
 /**
+ * Default implementation of [ProductsInteractor]
+ *
  * @author Koenova Yulia
  */
 class ProductsInteractorImpl @Inject constructor(

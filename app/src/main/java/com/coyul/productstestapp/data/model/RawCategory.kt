@@ -3,6 +3,8 @@ package com.coyul.productstestapp.data.model
 import com.google.gson.annotations.SerializedName
 
 /**
+ * Entities for raw response from server
+ *
  * @author Koenova Yulia
  */
 data class RawCategory (

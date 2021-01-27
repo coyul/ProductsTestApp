@@ -9,11 +9,19 @@ import dagger.Module
 import dagger.multibindings.IntoMap
 import kotlin.reflect.KClass
 
+/**
+ * Annotation that helps to put view models into map
+ *
+ * @author Koenova Yulia
+ */
 @Target(AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY_GETTER, AnnotationTarget.PROPERTY_SETTER)
 @Retention(AnnotationRetention.RUNTIME)
 @MapKey
 internal annotation class ViewModelKey(val value: KClass<out ViewModel>)
 
+/**
+ * Module with dependencies for view models
+ */
 @Module
 abstract class ViewModelModule {
     @Binds

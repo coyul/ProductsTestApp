@@ -1,8 +1,5 @@
 package com.coyul.productstestapp.domain.model
 
-/**
- * @author Koenova Yulia
- */
 abstract class Element(
     val id: Long,
     val name: String,

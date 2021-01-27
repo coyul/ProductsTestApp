@@ -97,5 +97,5 @@ private const val AMOUNT_INCORRECT = 0.0
 private const val AMOUNT_TEXT = "1000.1"
 private const val AMOUNT_INCORRECT_TEXT = "aaa"
 
-private const val CURRENCY_1 = "euro"
+private const val CURRENCY_1 = "EUR"
 private const val CURRENCY_2 = "no"

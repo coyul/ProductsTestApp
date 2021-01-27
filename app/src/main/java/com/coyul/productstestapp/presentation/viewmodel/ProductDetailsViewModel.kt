@@ -11,6 +11,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
 /**
+ * ViewModel for product details screen
+ *
  * @author Koenova Yulia
  */
 class ProductDetailsViewModel @Inject constructor(private val productsInteractor: ProductsInteractor) :

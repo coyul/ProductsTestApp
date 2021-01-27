@@ -8,6 +8,8 @@ import io.reactivex.rxjava3.core.Single
 import javax.inject.Inject
 
 /**
+ * Default implementation of [ProductsRepository]
+ *
  * @author Koenova Yulia
  */
 class ProductsRepositoryImpl @Inject constructor(
@@ -17,7 +19,7 @@ class ProductsRepositoryImpl @Inject constructor(
 
     override fun getCategoriesWithProducts(): Single<List<Category>> =
         productsApi.getCategories()
-            .flatMapIterable { it -> it }
+            .flatMapIterable { it }
             .map { converter.convert(it) }
             .toList()
 }

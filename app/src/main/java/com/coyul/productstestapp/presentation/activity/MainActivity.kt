@@ -8,6 +8,11 @@ import com.coyul.productstestapp.presentation.listener.OnProductItemClickListene
 import com.coyul.productstestapp.presentation.model.IdData
 import dagger.android.support.DaggerAppCompatActivity
 
+/**
+ * Basic activity, rules fragments navigation
+ *
+ * @author Koenova Yulia
+ */
 class MainActivity : DaggerAppCompatActivity(), OnProductItemClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,9 +32,5 @@ class MainActivity : DaggerAppCompatActivity(), OnProductItemClickListener {
             .replace(R.id.container, ProductDetailsFragment.newInstance(idData))
             .addToBackStack("details")
             .commit()
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
     }
 }

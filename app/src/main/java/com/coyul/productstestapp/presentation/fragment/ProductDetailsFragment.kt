@@ -14,6 +14,8 @@ import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
 /**
+ * Fragment for product details
+ *
  * @author Koenova Yulia
  */
 class ProductDetailsFragment : DaggerFragment() {

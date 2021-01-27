@@ -11,6 +11,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
 /**
+ * ViewModel for products list screen
+ *
  * @author Koenova Yulia
  */
 class ProductsListViewModel @Inject constructor(

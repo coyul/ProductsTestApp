@@ -5,6 +5,8 @@ import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
 
 /**
+ * Api for net calls
+ *
  * @author Koenova Yulia
  */
 interface ProductsApi {

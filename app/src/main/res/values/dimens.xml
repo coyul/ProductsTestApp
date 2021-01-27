@@ -6,6 +6,7 @@
     <dimen name="image_list_dimen">48dp</dimen>
     <dimen name="image_details_dimen">200dp</dimen>
     <!-- margin -->
+    <dimen name="margin_xs">2dp</dimen>
     <dimen name="margin_s">8dp</dimen>
     <dimen name="margin_m">12dp</dimen>
     <dimen name="margin_l">24dp</dimen>

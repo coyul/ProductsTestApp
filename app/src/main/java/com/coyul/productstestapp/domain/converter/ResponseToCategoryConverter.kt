@@ -8,18 +8,19 @@ import com.coyul.productstestapp.data.model.RawSalePrice
 import com.coyul.productstestapp.domain.model.Category
 import com.coyul.productstestapp.domain.model.Product
 import com.coyul.productstestapp.domain.model.SalePrice
+import java.util.*
 import javax.inject.Inject
 
 /**
+ * Converts raw response from server into model, convenient for using through the app
+ *
  * @author Koenova Yulia
  */
 class ResponseToCategoryConverter @Inject constructor() : OneWayConverter<RawCategory, Category> {
 
-    //TODO make 0 into constants
-
     override fun convert(item: RawCategory): Category =
         Category(
-            item.id.toLongOrNull() ?: 0L,
+            item.id.toLongOrNull() ?: DEFAULT_ID,
             item.name,
             item.description,
             convertProducts(item.themes)
@@ -28,10 +29,10 @@ class ResponseToCategoryConverter @Inject constructor() : OneWayConverter<RawCat
     private fun convertProducts(products: List<RawProduct>): List<Product> =
         products.map {
             Product(
-                it.id.toLongOrNull() ?: 0L,
+                it.id.toLongOrNull() ?: DEFAULT_ID,
                 it.name,
                 it.description,
-                it.categoryId.toLongOrNull() ?: 0L,
+                it.categoryId.toLongOrNull() ?: DEFAULT_ID,
                 BuildConfig.API_URL + it.url,
                 convertPrice(it.salePrice)
             )
@@ -39,8 +40,20 @@ class ResponseToCategoryConverter @Inject constructor() : OneWayConverter<RawCat
 
     private fun convertPrice(price: RawSalePrice): SalePrice =
         SalePrice(
-            price.amount.toDoubleOrNull() ?: 0.0,
-            //TODO normal currency!
-            price.currency
+            price.amount.toDoubleOrNull() ?: DEFAULT_AMOUNT,
+            getCurrencySymbolIfPossible(price.currency)
         )
+
+    private fun getCurrencySymbolIfPossible(currencyCode: String): String {
+        return try {
+            Currency.getInstance(currencyCode).getSymbol(Locale.getDefault())
+        } catch (e: Exception) {
+            currencyCode
+        }
+    }
+
+    private companion object {
+        private const val DEFAULT_ID = 0L
+        private const val DEFAULT_AMOUNT = 0.0
+    }
 }

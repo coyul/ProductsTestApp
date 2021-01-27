@@ -5,6 +5,11 @@ import com.coyul.productstestapp.presentation.viewmodel.ViewModelFactory
 import dagger.Binds
 import dagger.Module
 
+/**
+ * Module with dependency for view models factory
+ *
+ * @author Koenova Yulia
+ */
 @Module
 abstract class ViewModelFactoryModule {
 

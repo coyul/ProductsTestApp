@@ -1,8 +1,5 @@
 package com.coyul.productstestapp.domain.model
 
-/**
- * @author Koenova Yulia
- */
 class Product(
     id: Long,
     name: String,

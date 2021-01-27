@@ -7,13 +7,18 @@ import com.coyul.productstestapp.di.module.base.NetworkModule
 import com.coyul.productstestapp.di.module.feature.ProductsModule
 import com.coyul.productstestapp.di.module.ui.ActivityBuildersModule
 import com.coyul.productstestapp.di.module.ui.ViewModelFactoryModule
+import com.coyul.productstestapp.di.scope.ApplicationScope
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
-import javax.inject.Singleton
 
-@Singleton
+/**
+ * Main dagger component
+ *
+ * @author Koenova Yulia
+ */
+@ApplicationScope
 @Component(
     modules = [
         AndroidSupportInjectionModule::class,
