@@ -10,7 +10,7 @@ import com.coyul.productstestapp.databinding.ProductListItemBinding
 import com.coyul.productstestapp.domain.model.Category
 import com.coyul.productstestapp.domain.model.Element
 import com.coyul.productstestapp.domain.model.Product
-import com.coyul.productstestapp.presentation.listener.OnItemClickListener
+import com.coyul.productstestapp.presentation.listener.OnProductItemClickListener
 
 /**
  * ViewHolder abstract entity for main screen products list
@@ -40,12 +40,12 @@ class CategoryViewHolder(
  */
 class ProductViewHolder(
     private val binding: ProductListItemBinding,
-    private val clickListener: OnItemClickListener<Element>
+    private val clickListenerProduct: OnProductItemClickListener
 ) : CategoriesWithProductsViewHolder(binding) {
 
     override fun bindView(element: Element, isLastElement: Boolean) {
         val product = element as Product
-        itemView.setOnClickListener { clickListener.onClick(product) }
+        itemView.setOnClickListener { clickListenerProduct.onClick(product) }
         binding.productName.text = product.name
         Glide
             .with(itemView)

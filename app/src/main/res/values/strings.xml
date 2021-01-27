@@ -5,5 +5,5 @@
 
     <!-- errors and stubs-->
     <string name="stub_text">There are no products available</string>
-    <string name="error_text">Unfortunately, something went wrong. Please try to reboot the app</string>
+    <string name="error_text">Unfortunately, something went wrong. Please try to reload the app</string>
 </resources>

@@ -3,21 +3,20 @@ package com.coyul.productstestapp.domain.interactor
 import com.coyul.productstestapp.domain.model.Category
 import com.coyul.productstestapp.domain.model.Product
 import com.coyul.productstestapp.domain.model.SalePrice
-import com.coyul.productstestapp.domain.repository.ProductsLifeCycleRepository
+import com.coyul.productstestapp.domain.repository.CategoriesLifeCycleRepository
 import com.coyul.productstestapp.domain.repository.ProductsRepository
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import io.reactivex.rxjava3.core.Single
-import org.junit.Before
 import org.junit.Test
 
 class ProductsInteractorImplTest {
 
     private val productsRepository: ProductsRepository = mockk()
-    private val productsLifeCycleRepository: ProductsLifeCycleRepository = mockk()
+    private val categoriesLifeCycleRepository: CategoriesLifeCycleRepository = mockk()
     private val interactor: ProductsInteractor =
-        ProductsInteractorImpl(productsRepository, productsLifeCycleRepository)
+        ProductsInteractorImpl(productsRepository, categoriesLifeCycleRepository)
 
     private val salePrice = SalePrice(AMOUNT, CURRENCY)
     private val product1 = Product(ID_1, NAME_1, DESCRIPTION_1, ID_1, IMG_1, salePrice)
@@ -25,27 +24,23 @@ class ProductsInteractorImplTest {
     private val testList: List<Category> =
         listOf(Category(ID_1, NAME_1, DESCRIPTION_1, listOf(product1, product2)))
 
-    @Before
-    fun setUp() {
-    }
-
     @Test
     fun `loadAndSaveCategories test`() {
         every { productsRepository.getCategoriesWithProducts() } returns Single.just(testList)
-        every { productsLifeCycleRepository.saveCategories(testList) } returns Unit
+        every { categoriesLifeCycleRepository.saveCategories(testList) } returns Unit
         interactor.loadAndSaveCategories()
             .test()
             .assertComplete()
             .assertNoErrors()
             .assertResult(testList)
         verify {
-            productsLifeCycleRepository.saveCategories(testList)
+            categoriesLifeCycleRepository.saveCategories(testList)
         }
     }
 
     @Test
     fun `getProduct test`() {
-        every { productsLifeCycleRepository.getSavedCategories() } returns testList
+        every { categoriesLifeCycleRepository.getSavedCategories() } returns testList
         interactor.getProduct(ID_2, ID_1)
             .test()
             .assertComplete()

@@ -1,8 +1,8 @@
 package com.coyul.productstestapp.di.module.base
 
-import com.coyul.productstestapp.data.repository.ProductsLifeCycleRepositoryImpl
+import com.coyul.productstestapp.data.repository.CategoriesLifeCycleRepositoryImpl
 import com.coyul.productstestapp.di.scope.ApplicationScope
-import com.coyul.productstestapp.domain.repository.ProductsLifeCycleRepository
+import com.coyul.productstestapp.domain.repository.CategoriesLifeCycleRepository
 import dagger.Binds
 import dagger.Module
 
@@ -16,5 +16,5 @@ abstract class AppModule {
 
     @Binds
     @ApplicationScope
-    abstract fun bindsProductsLifeCycleRepository(repository: ProductsLifeCycleRepositoryImpl): ProductsLifeCycleRepository
+    abstract fun bindsProductsLifeCycleRepository(repository: CategoriesLifeCycleRepositoryImpl): CategoriesLifeCycleRepository
 }

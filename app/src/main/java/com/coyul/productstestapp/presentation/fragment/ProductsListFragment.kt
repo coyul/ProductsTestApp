@@ -7,11 +7,10 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.coyul.productstestapp.R
 import com.coyul.productstestapp.databinding.ProductsListFragmentBinding
-import com.coyul.productstestapp.domain.model.Element
 import com.coyul.productstestapp.domain.model.Product
 import com.coyul.productstestapp.presentation.adapter.CategoriesWithProductsAdapter
-import com.coyul.productstestapp.presentation.listener.OnItemClickListener
 import com.coyul.productstestapp.presentation.listener.OnProductItemClickListener
+import com.coyul.productstestapp.presentation.listener.ProductDetailsOpenClickListener
 import com.coyul.productstestapp.presentation.model.IdData
 import com.coyul.productstestapp.presentation.viewmodel.ProductsListViewModel
 import dagger.android.support.DaggerFragment
@@ -22,7 +21,7 @@ import javax.inject.Inject
  *
  * @author Koenova Yulia
  */
-class ProductsListFragment : DaggerFragment(), OnItemClickListener<Element> {
+class ProductsListFragment : DaggerFragment(), OnProductItemClickListener {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -30,7 +29,7 @@ class ProductsListFragment : DaggerFragment(), OnItemClickListener<Element> {
     private lateinit var adapter: CategoriesWithProductsAdapter
     private var nullableBinding: ProductsListFragmentBinding? = null
     private val binding get() = nullableBinding!!
-    lateinit var listener: OnProductItemClickListener
+    lateinit var listener: ProductDetailsOpenClickListener
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,8 +54,8 @@ class ProductsListFragment : DaggerFragment(), OnItemClickListener<Element> {
         viewModel.load()
     }
 
-    override fun onClick(element: Element) {
-        listener.onProductSelected(IdData(element.id, (element as Product).categoryId))
+    override fun onClick(product: Product) {
+        listener.onProductSelected(IdData(product.id, product.categoryId))
     }
 
     private fun observeViewModel() {

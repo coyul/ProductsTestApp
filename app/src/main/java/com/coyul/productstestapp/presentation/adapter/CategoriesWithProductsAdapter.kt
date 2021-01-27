@@ -7,7 +7,8 @@ import com.coyul.productstestapp.databinding.CategoryListItemBinding
 import com.coyul.productstestapp.databinding.ProductListItemBinding
 import com.coyul.productstestapp.domain.model.Category
 import com.coyul.productstestapp.domain.model.Element
-import com.coyul.productstestapp.presentation.listener.OnItemClickListener
+import com.coyul.productstestapp.domain.model.Product
+import com.coyul.productstestapp.presentation.listener.OnProductItemClickListener
 
 /**
  * Adapter for main screen list, under each [Category] is placed list with [Product]-s
@@ -15,7 +16,7 @@ import com.coyul.productstestapp.presentation.listener.OnItemClickListener
  * @author Koenova Yulia
  */
 class CategoriesWithProductsAdapter(
-    private val clickListener: OnItemClickListener<Element>
+    private val clickListener: OnProductItemClickListener
 ) :
     RecyclerView.Adapter<CategoriesWithProductsViewHolder>() {
 

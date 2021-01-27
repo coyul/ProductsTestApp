@@ -1,13 +1,13 @@
 package com.coyul.productstestapp.data.repository
 
 import com.coyul.productstestapp.domain.model.Category
-import com.coyul.productstestapp.domain.repository.ProductsLifeCycleRepository
+import com.coyul.productstestapp.domain.repository.CategoriesLifeCycleRepository
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class ProductsLifeCycleRepositoryImplTest {
+class CategoriesLifeCycleRepositoryImplTest {
 
-    private val repository: ProductsLifeCycleRepository = ProductsLifeCycleRepositoryImpl()
+    private val repository: CategoriesLifeCycleRepository = CategoriesLifeCycleRepositoryImpl()
 
     @Test
     fun `saveCategories and getCategories Test`() {

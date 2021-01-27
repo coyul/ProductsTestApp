@@ -1,12 +1,12 @@
 package com.coyul.productstestapp.presentation.listener
 
-import com.coyul.productstestapp.presentation.model.IdData
+import com.coyul.productstestapp.domain.model.Product
 
 /**
- * Listener for opening product details based on ids
+ * Click listener on elements for adapter
  *
  * @author Koenova Yulia
  */
 interface OnProductItemClickListener {
-    fun onProductSelected(idData: IdData)
+    fun onClick(product: Product)
 }

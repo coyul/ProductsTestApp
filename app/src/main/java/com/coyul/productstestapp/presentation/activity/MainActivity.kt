@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.coyul.productstestapp.R
 import com.coyul.productstestapp.presentation.fragment.ProductDetailsFragment
 import com.coyul.productstestapp.presentation.fragment.ProductsListFragment
-import com.coyul.productstestapp.presentation.listener.OnProductItemClickListener
+import com.coyul.productstestapp.presentation.listener.ProductDetailsOpenClickListener
 import com.coyul.productstestapp.presentation.model.IdData
 import dagger.android.support.DaggerAppCompatActivity
 
@@ -13,7 +13,7 @@ import dagger.android.support.DaggerAppCompatActivity
  *
  * @author Koenova Yulia
  */
-class MainActivity : DaggerAppCompatActivity(), OnProductItemClickListener {
+class MainActivity : DaggerAppCompatActivity(), ProductDetailsOpenClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

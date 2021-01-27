@@ -4,8 +4,8 @@ Clicking on item opens product details, that contains name and description of pr
 
 ## Screens
 <div align = "center">
-    <img src = "https://user-images.githubusercontent.com/26003155/106025696-4b1fcb80-60c9-11eb-9421-56512654a547.png" width="330">
     <img src = "https://user-images.githubusercontent.com/26003155/106025909-83bfa500-60c9-11eb-987f-81b37532b296.png" width="330">
+    <img src = "https://user-images.githubusercontent.com/26003155/106025696-4b1fcb80-60c9-11eb-9421-56512654a547.png" width="300">
 </div>
     
 ## Chosen architecture

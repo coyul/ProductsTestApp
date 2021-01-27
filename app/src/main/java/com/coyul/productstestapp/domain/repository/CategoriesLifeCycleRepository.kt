@@ -7,7 +7,7 @@ import com.coyul.productstestapp.domain.model.Category
  *
  * @author Koenova Yulia
  */
-interface ProductsLifeCycleRepository {
+interface CategoriesLifeCycleRepository {
     fun saveCategories(categories: List<Category>)
     fun getSavedCategories(): List<Category>
 }
